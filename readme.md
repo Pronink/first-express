@@ -46,7 +46,7 @@ GO
 ```
 Pasos para crear un proyecto como el mío desde cero:
 ===================================
-- npm install express-generator -g
+- npm install -g express-generator
 - express --no-view --git
 - npm install
 - npm install --save mssql
