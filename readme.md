@@ -10,7 +10,8 @@ Ahora rellenadlo con los datos de la base de datos.
 Probar la aplicación:
 ===============
 - Ejecutad **npm run start** o **npm run nodemon** en la raiz del proyecto
-- En el navegador, acceded a: **http://localhost:3000/usuarios/**
+- Obtener todos los usuarios: **http://localhost:3000/usuarios/**
+- Obtener la información de un usuario: **http://localhost:3000/usuarios/_Ismael_**
 
 Poner en marcha el servidor de Microsoft SQL Server
 ===========
@@ -43,6 +44,32 @@ CREATE TABLE [FirstAngular].[dbo].[Token]
     )
 );
 GO
+
+CREATE PROCEDURE dbo.UsuariosSEL
+AS
+    SELECT 
+    U.Nombre,
+    U.ClaveEncriptada,
+    U.Email,
+    (SELECT T.Token, T.Caducidad FROM dbo.TOKEN T WHERE T.Usuario_Nombre = U.Nombre FOR JSON PATH) AS Tokens
+    FROM dbo.Usuario U 
+GO
+
+CREATE PROCEDURE dbo.UsuarioSEL
+    @nombre NVARCHAR(50),
+    @fechaActual BIGINT OUTPUT
+AS
+    SET @fechaActual = DATEDIFF(SECOND,{d '1970-01-01'}, GETDATE()) -- Obtener fecha actual en formato UNIX
+    
+    SELECT 
+    U.Nombre,
+    U.ClaveEncriptada,
+    U.Email,
+    (SELECT T.Token, T.Caducidad FROM dbo.TOKEN T WHERE T.Usuario_Nombre = U.Nombre FOR JSON PATH) AS Tokens
+    FROM dbo.Usuario U 
+    WHERE U.Nombre = @nombre
+GO
+
 ```
 - Agregad datos a ambas tablas. (Token.Usuario_Nombre se relaciona con Usuario.Nombre
 
