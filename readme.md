@@ -44,7 +44,7 @@ CREATE TABLE [FirstAngular].[dbo].[Token]
 );
 GO
 ```
-- Agregar datos a ambas tablas. (Token.Usuario_Nombre se relaciona con Usuario.Nombre
+- Agregad datos a ambas tablas. (Token.Usuario_Nombre se relaciona con Usuario.Nombre
 
 Pasos para crear un proyecto como el mío desde cero:
 ===================================
