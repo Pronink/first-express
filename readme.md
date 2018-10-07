@@ -34,7 +34,7 @@ GO
 
 CREATE TABLE [FirstAngular].[dbo].[Token]
 (
-    [Nombre] NVARCHAR(50) NOT NULL,
+    [Usuario_Nombre] NVARCHAR(50) NOT NULL,
     [Token] NVARCHAR(200) NOT NULL,
     [Caducidad] BIGINT NOT NULL
     CONSTRAINT [UQ_codes] UNIQUE
