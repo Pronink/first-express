@@ -56,4 +56,4 @@ Pasos para crear un proyecto como el mío desde cero:
 - npm install --save-dev @types/mssql
 - npm install --save-dev @types/cli-color 
 - Agregad manualmente **"nodemon": "nodemon ./bin/www"** a 
-**"scripts"** del archivo **package.json**
+**"scripts"** en el archivo **package.json**
