@@ -3,18 +3,18 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
-const indexRouter = require('./routes/index');
-const usuariosRouter = require('./routes/usuarios');
-
 const app = express();
 
+// Configuración de express
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/usuarios', usuariosRouter);
+// Rutas
+app.use('/', require('./routes/index'));
+app.use('/usuarios', require('./routes/usuarios'));
+app.use('/error', require('./routes/error'));
 
 module.exports = app;

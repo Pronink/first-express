@@ -11,7 +11,8 @@ Probar la aplicación:
 ===============
 - Ejecutad **npm run start** o **npm run nodemon** en la raiz del proyecto
 - Obtener todos los usuarios: **http://localhost:3000/usuarios/**
-- Obtener la información de un usuario: **http://localhost:3000/usuarios/_Ismael_**
+- Obtener la información de un usuario: **http://localhost:3000/usuarios/Ismael**
+- Crear error SQL: **http://localhost:3000/error**
 
 Poner en marcha el servidor de Microsoft SQL Server
 ===========
